@@ -13,12 +13,12 @@ from SparkFunctions import *
 
 
 parser = ArgumentParser("Spark Check In")
-    parser.add_argument(
-        "-w", "--who", help="Spark Authentication Token", required=True
-    )
+parser.add_argument(
+    "-w", "--who", help="Spark Authentication Token", required=True
+)
 
-    args = parser.parse_args()
-    who = args.who
+args = parser.parse_args()
+who = args.who
 
 print("room ID :" + roomID_SoftwareProject)
 
