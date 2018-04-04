@@ -13,7 +13,7 @@ from SparkFunctions import *
 
 print("room ID :" + roomID_SoftwareProject)
 
-resp = post_message("Interface state has changed !", roomID_SoftwareProject, bearer_Bot)
+resp = post_message("Interface state has changed ! New state is :", roomID_SoftwareProject, bearer_Bot)
 
 print("resp = " + resp.text)
 
