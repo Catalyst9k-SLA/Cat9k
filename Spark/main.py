@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, '../Variables/')
+sys.path.insert(1, '../Variables/')
 from SparkVariables import *
 from SparkFunctions import *
 
