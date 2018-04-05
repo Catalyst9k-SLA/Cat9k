@@ -15,7 +15,6 @@ arguments = sys.argv
 
 date = ""
 date += str(arguments[1]) + " " + str(arguments[2])
-date = date[1:]
 
 time = ""
 time += str(arguments[3])
