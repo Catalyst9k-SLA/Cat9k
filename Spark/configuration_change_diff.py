@@ -12,28 +12,27 @@
 #
 
 import eem
+import re
 import sys
 import os
-import requests
-import re
+import inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+dirParent = os.path.dirname(currentdir)
+dirVariable = dirParent + "/Variables"
+sys.path.insert(0, dirVariable)
+
+from SparkVariables import *
+from SparkFunctions import *
 
 CFG_BAK_PY = '/flash/running-config.bak'
 CFG_BAK_IOS = 'flash:/running-config.bak'
-SPARK_API = 'https://api.ciscospark.com/v1/'
 
 # Get the CLI event variables for this specific event.
 arr_einfo = eem.event_reqinfo()
 # Get the environment variables
 arr_envinfo = eem.env_reqinfo()
 
-if 'spark_token' not in arr_envinfo:
-    eem.action_syslog(
-        'Environment variable "spark_token" must be set', priority='3')
-    sys.exit(1)
-if 'spark_room' not in arr_envinfo:
-    eem.action_syslog(
-        'Environment variable "spark_room" must be set', priority='3')
-    sys.exit(1)
+
 if 'device_name' not in arr_envinfo:
     eem.action_syslog(
         'Environment variable "device_name" must be set', priority='3')
@@ -83,44 +82,7 @@ msg = '### Alert: Config changed on ' + device_name + '\n'
 msg += 'Configuration differences between the running config and last backup:\n'
 msg += '```{}```'.format('\n'.join(diff_lines[:-1]))
 
-headers = {
-    'authorization': arr_envinfo['spark_token'],
-    'content-type': 'application/json'
-}
 
-# Get the Spark room ID
-url = SPARK_API + 'rooms'
+resp = post_message_markdown(msg, roomID_SoftwareProject, bearer_Bot)
 
-r = None
-try:
-    r = requests.request('GET', url, headers=headers)
-    r.raise_for_status()
-except Exception as e:
-    eem.action_syslog(
-        'Failed to get list of Spark rooms: {}'.format(e), priority='3')
-    sys.exit(1)
-
-room_id = None
-for room in r.json()['items']:
-    if room['title'] == arr_envinfo['spark_room']:
-        room_id = room['id']
-        break
-
-if room_id is None:
-    eem.action_syslog('Failed to find room ID for {}'.format(
-        arr_envinfo['spark_room']))
-    sys.exit(1)
-
-# Post the message to Spark
-url = SPARK_API + 'messages'
-
-payload = {'roomId': room_id, 'markdown': msg}
-
-try:
-    r = requests.request(
-        'POST', url, json=payload, headers=headers)
-    r.raise_for_status()
-except Exception as e:
-    eem.action_syslog(
-        'Error posting message to Spark: {}'.format(e), priority='3')
-    sys.exit(1)
+print("resp = " + resp.text)
