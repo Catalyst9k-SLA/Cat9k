@@ -29,7 +29,7 @@ CFG_BAK_IOS = 'flash:/running-config.bak'
 
 
 # Get a CLI handle
-cli = eem.cli_open()
+# cli = eem.cli_open()
 eem.cli_exec(cli, 'enable')
 eem.cli_write(cli, 'copy runn {}'.format(CFG_BAK_IOS))
 
