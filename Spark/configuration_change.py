@@ -14,7 +14,7 @@ from SparkFunctions import *
 arguments = sys.argv
 
 date = ""
-date += str(arguments[1]) + " " str(arguments[2])
+date += str(arguments[1]) + " " + str(arguments[2])
 
 time = ""
 time += str(arguments[3])
