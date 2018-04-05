@@ -98,6 +98,23 @@ def post_message(message_text, room_id, token):
 
     return resp
 
+def post_message_markdown(message_text, room_id, token):
+    """
+    Posts the message_text as markdown format to the Spark room with the ID of room_id using the token.
+    Returns the JSON-encoded response.
+    """
+
+    requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+    headers = {'Authorization': 'Bearer ' + token,
+               'Content-Type': 'application/json'}
+
+    body = json.dumps({'roomId': room_id, 'markdown': message_text})
+
+    resp = requests.post('https://api.ciscospark.com/v1/messages',
+                         verify=False, headers=headers, data=body)
+
+    return resp
 
 def post_message_with_image(message_text, img_url, room_id, token):
     """
