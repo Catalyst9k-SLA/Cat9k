@@ -154,3 +154,28 @@ def cleanup_room(room_id, token):
         resp = requests.delete('https://api.ciscospark.com/v1/messages/{}'.format(message['id']),
                                verify=False, headers=headers)
         print resp.status_code
+
+def get_message(message_id , token):
+
+    print("je suis dans get_message")
+    # add authorization to the header
+    header = {"Authorization": "Bearer " + token}
+
+    # create request url using message ID
+    get_rooms_url = "https://api.ciscospark.com/v1/messages/" + message_id
+
+    # send the GET request and do not verify SSL certificate for simplicity of this example
+    api_response = requests.get(get_rooms_url, headers=header, verify=False)
+
+    # parse the response in json
+    response_json = api_response.json()
+
+    print("response_json =" + str(response_json))
+
+    # get the text value from the response
+    text = response_json["text"]
+
+    print("text =" + text)
+
+    # return the text value
+    return text

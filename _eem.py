@@ -50,7 +50,6 @@ def get_vty_number( message ) :
         return item.text
 
 
-
 def get_command_response(input_message , type =  1) :
 
     command_status = []

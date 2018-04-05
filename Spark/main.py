@@ -13,7 +13,8 @@ from SparkFunctions import *
 
 print("room ID :" + roomID_SoftwareProject)
 
-resp = post_message_markdown(" > Test - from the Cat9k", roomID_SoftwareProject, bearer_Bot)
+resp = post_message_markdown(" **Test** - from the Cat9k \n"
+                             "> **test**", roomID_SoftwareProject, bearer_Bot)
 
 print("resp = " + resp.text)
 
