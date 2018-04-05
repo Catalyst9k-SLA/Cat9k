@@ -1,18 +1,16 @@
 #####
-# File where we store the variable. This file is the template. The other file (SparkVariables.py) (with the values) will not be sent to github.
+# File where we store the variable.
 #####
 
 # room ID
 
-roomID_SoftwareProject = ""
+roomID_SoftwareProject = "Y2lzY29zcGFyazovL3VzL1JPT00vM2IzYjUyOTAtMTMxMy0xMWU4LWJlY2EtN2RlZGYwNWYxOTFh"
 
 # bearer
 
-bearer_Antoine = ""
-bearer_Bot = ""
+bearer_Antoine = "NTNlNmY1NjQtNTM4Ny00OThlLWFkMzAtZTc4YjkyYzAyZGI0OWE1ODVmY2ItODIx"
+bearer_Bot = "ZTRlYTY5YjQtODMxNC00NDJhLWFmM2YtZmU5OGI0MDAxN2Y1MjEyNDg0YzYtZmFi"
 
-# webhook
-
-webhook_URL = ""
+webhook_URL = "https://2f7a969f.ngrok.io/webhook"
 webhook_name = "webhook"
-peopleID_Kitty = ""
+peopleID_Kitty = "Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2ZjODNjMi01MzdlLTRiMTMtOTYzYy0xNTM3MTc4MTAzZmI"
