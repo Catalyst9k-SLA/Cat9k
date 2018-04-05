@@ -45,6 +45,9 @@ def webhooks():
     else:
         post_message("You posted a message !", roomID_SoftwareProject, bearer_Bot)
 
+        if message == "Kitty Salut":
+            post_message("Salut " + str(person_email), roomID_SoftwareProject, bearer_Bot)
+
     return "OK"
 
 # run the application
