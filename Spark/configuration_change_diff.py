@@ -27,16 +27,6 @@ from SparkFunctions import *
 CFG_BAK_PY = '/flash/running-config.bak'
 CFG_BAK_IOS = 'flash:/running-config.bak'
 
-# Get the CLI event variables for this specific event.
-arr_einfo = eem.event_reqinfo()
-# Get the environment variables
-arr_envinfo = eem.env_reqinfo()
-
-
-if 'device_name' not in arr_envinfo:
-    eem.action_syslog(
-        'Environment variable "device_name" must be set', priority='3')
-    sys.exit(1)
 
 # Get a CLI handle
 cli = eem.cli_open()
