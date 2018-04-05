@@ -1,4 +1,5 @@
 from ciscosparkapi import CiscoSparkAPI
+import cli
 
 if __name__ == '__main__':
     # Use ArgParse to retrieve command line parameters.
@@ -17,6 +18,9 @@ if __name__ == '__main__':
     #token = args.token
     #email = args.email
 
-    message = "**Alert:** Config Changed"
+    output = cli.execute('show logging')
+    #print(output)
+
+    message = "**Alert:** Config Changed "+ output
     api = CiscoSparkAPI(access_token="ZTRlYTY5YjQtODMxNC00NDJhLWFmM2YtZmU5OGI0MDAxN2Y1MjEyNDg0YzYtZmFi")
     api.messages.create(toPersonEmail="sajustin@cisco.com", markdown=message)
