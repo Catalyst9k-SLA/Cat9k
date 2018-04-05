@@ -15,6 +15,7 @@ arguments = sys.argv
 
 date = ""
 date += str(arguments[1]) + " " + str(arguments[2])
+date = date[1:]
 
 time = ""
 time += str(arguments[3])
@@ -22,10 +23,10 @@ time += str(arguments[3])
 
 print("room ID :" + roomID_SoftwareProject)
 
-resp = post_message("Configuration has changed ! \n", roomID_SoftwareProject, bearer_Bot)
-resp = post_message_markdown("* Date : " + date +  "\n"
-                             "* Time : " + time + "\n"
-                             "> Changes were made by **" + str(arguments[9]) + "** using **" + str(arguments[7]) + "**", roomID_SoftwareProject, bearer_Bot)
+resp = post_message_markdown("# Configuration has changed ! \n", roomID_SoftwareProject, bearer_Bot)
+resp = post_message_markdown("* **Date** : " + date + "\n"
+                             "* **Time** : " + time, roomID_SoftwareProject, bearer_Bot)
+resp = post_message_markdown("> Changes were made by **" + str(arguments[9]) + "** using **" + str(arguments[7]) + "**", roomID_SoftwareProject, bearer_Bot)
 
 print("resp = " + resp.text)
 
