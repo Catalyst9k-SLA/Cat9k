@@ -1,4 +1,16 @@
 from ciscosparkapi import CiscoSparkAPI
+import cli
+# Importing the variable file in the dir Variable
+import sys
+import os
+import inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+dirParent = os.path.dirname(currentdir)
+dirVariable = dirParent + "/Variables"
+sys.path.insert(0, dirVariable)
+
+
+from SparkVariables import *
 
 if __name__ == '__main__':
     # Use ArgParse to retrieve command line parameters.
@@ -17,6 +29,10 @@ if __name__ == '__main__':
     #token = args.token
     #email = args.email
 
-    message = "**Alert:** Config Changed"
-    api = CiscoSparkAPI(access_token="ZTRlYTY5YjQtODMxNC00NDJhLWFmM2YtZmU5OGI0MDAxN2Y1MjEyNDg0YzYtZmFi")
-    api.messages.create(toPersonEmail="sajustin@cisco.com", markdown=message)
+    output = cli.execute('show logging')
+    print(output)
+
+    message = "**Alert:** Config Changed "
+    api = CiscoSparkAPI(access_token=bearer_Bot)
+    #api.messages.create(toPersonEmail="sajustin@cisco.com", markdown=message)
+    api.messages.create(roomId=roomID_SoftwareProject, markdown=message  )
