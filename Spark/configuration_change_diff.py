@@ -41,48 +41,53 @@ if 'device_name' not in arr_envinfo:
 # Get a CLI handle
 cli = eem.cli_open()
 eem.cli_exec(cli, 'enable')
+eem.cli_write(cli, 'copy runn {}'.format(CFG_BAK_IOS))
 
-if not os.path.isfile(CFG_BAK_PY):
-    try:
-        eem.cli_write(cli, 'copy runn {}'.format(CFG_BAK_IOS))
-        prom = eem.cli_read_pattern(cli, '(filename|#)')
-        if re.search(r'filename', prom):
-            eem.cli_exec(cli, '\r')
-    except Exception as e:
-        eem.action_syslog('Failed to backup configuration to {}: {}'.format(
-            CFG_BAK_IOS, e), priority='3')
-        sys.exit(1)
-    # First time through, only save the current config
-    eem.cli_close(cli)
-    sys.exit(0)
+print("OK")
 
-res = None
-try:
-    res = eem.cli_exec(
-        cli, 'show archive config diff {} system:running-config'.format(CFG_BAK_IOS))
-    os.remove(CFG_BAK_PY)
-    eem.cli_write(cli, 'copy runn {}'.format(CFG_BAK_IOS))
-    prom = eem.cli_read_pattern(cli, 'filename')
-    if re.search(r'filename', prom):
-        eem.cli_exec(cli, '\r')
-except Exception as e:
-    eem.action_syslog(
-        'Failed to get config differences: {}'.format(e), priority='3')
-    sys.exit(1)
-
-eem.cli_close(cli)
-
-diff_lines = re.split(r'\r?\n', res)
-if re.search('No changes were found', res):
-    # No differences found
-    sys.exit(0)
-
-device_name = arr_envinfo['device_name']
-msg = '### Alert: Config changed on ' + device_name + '\n'
-msg += 'Configuration differences between the running config and last backup:\n'
-msg += '```{}```'.format('\n'.join(diff_lines[:-1]))
-
-
-resp = post_message_markdown(msg, roomID_SoftwareProject, bearer_Bot)
-
-print("resp = " + resp.text)
+#
+#
+# if not os.path.isfile(CFG_BAK_PY):
+#     try:
+#         eem.cli_write(cli, 'copy runn {}'.format(CFG_BAK_IOS))
+#         prom = eem.cli_read_pattern(cli, '(filename|#)')
+#         if re.search(r'filename', prom):
+#             eem.cli_exec(cli, '\r')
+#     except Exception as e:
+#         eem.action_syslog('Failed to backup configuration to {}: {}'.format(
+#             CFG_BAK_IOS, e), priority='3')
+#         sys.exit(1)
+#     # First time through, only save the current config
+#     eem.cli_close(cli)
+#     sys.exit(0)
+#
+# res = None
+# try:
+#     res = eem.cli_exec(
+#         cli, 'show archive config diff {} system:running-config'.format(CFG_BAK_IOS))
+#     os.remove(CFG_BAK_PY)
+#     eem.cli_write(cli, 'copy runn {}'.format(CFG_BAK_IOS))
+#     prom = eem.cli_read_pattern(cli, 'filename')
+#     if re.search(r'filename', prom):
+#         eem.cli_exec(cli, '\r')
+# except Exception as e:
+#     eem.action_syslog(
+#         'Failed to get config differences: {}'.format(e), priority='3')
+#     sys.exit(1)
+#
+# eem.cli_close(cli)
+#
+# diff_lines = re.split(r'\r?\n', res)
+# if re.search('No changes were found', res):
+#     # No differences found
+#     sys.exit(0)
+#
+# device_name = arr_envinfo['device_name']
+# msg = '### Alert: Config changed on ' + device_name + '\n'
+# msg += 'Configuration differences between the running config and last backup:\n'
+# msg += '```{}```'.format('\n'.join(diff_lines[:-1]))
+#
+#
+# resp = post_message_markdown(msg, roomID_SoftwareProject, bearer_Bot)
+#
+# print("resp = " + resp.text)
