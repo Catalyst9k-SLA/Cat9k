@@ -10,3 +10,9 @@ roomID_SoftwareProject = ""
 
 bearer_Antoine = ""
 bearer_Bot = ""
+
+# webhook
+
+webhook_URL = ""
+webhook_name = "webhook"
+peopleID_Kitty = ""
