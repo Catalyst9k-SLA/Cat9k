@@ -55,7 +55,8 @@ def webhooks():
         elif message == "help":
             kittyHelp()
         elif message == "save config":
-            save_config()
+            # def save_config(usernameTFTP, passwordTFTP, ipTFTP, path, filename):
+            save_config(username_TFTP, password_TFTP, ip_TFTP, path_TFTP, filename_TFTP)
 
 
 

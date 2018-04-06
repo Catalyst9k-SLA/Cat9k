@@ -16,13 +16,15 @@ from SparkFunctions import *
 from SparkVariables import *
 
 
-def save_config():
+def save_config(usernameTFTP, passwordTFTP, ipTFTP, path, filename):
 
     print "\n\n *** Printing show cmd with 'execute' function *** \n\n"
-    output = cli.execute('copy startup-config ftp://Administrator:C1sco123@10.9.15.3/Temp/SoftwareProjectSLA/config_backup.cfg')
+    output = cli.execute("copy startup-config ftp://" + usernameTFTP + ":" + passwordTFTP + "@" + ipTFTP + path + filename + ".cfg")
     print (output)
 
-    post_message_markdown("Configuration has been saved !", roomID_SoftwareProject, bearer_Bot)
+    post_message_markdown("Configuration has been saved !\n"
+                          "> ftp://" + usernameTFTP + "@" + ipTFTP + path + filename + ".cfg", roomID_SoftwareProject, bearer_Bot)
 
 if __name__ == "__main__":
-    save_config()
+    save_config(username_TFTP, password_TFTP, ip_TFTP, path_TFTP, filename_TFTP)
+

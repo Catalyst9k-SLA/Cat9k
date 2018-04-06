@@ -19,3 +19,10 @@ peopleID_Kitty = ""
 
 botName_Kitty = ""
 
+# config save
+
+ip_TFTP = ""
+filename_TFTP = ""
+path_TFTP = ""
+username_TFTP = ""
+password_TFTP = ""
