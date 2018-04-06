@@ -27,8 +27,6 @@ def index():
 @app.route("/webhook", methods=['POST'])
 def webhooks():
 
-    print("I'm in the webhook /webhook POST")
-
     # Get the json data
     json = request.json
 
