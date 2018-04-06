@@ -6,7 +6,7 @@ import os
 import inspect
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 dirParent = os.path.dirname(os.path.dirname(currentdir))
-dirVariable = dirParent + "../Variables"
+dirVariable = dirParent + "/Variables"
 sys.path.insert(0, dirVariable)
 
 from argparse import ArgumentParser
