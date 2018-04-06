@@ -13,7 +13,7 @@ from SparkFunctions import *
 
 def kittyHelp():
     post_message_markdown("# Kitty Help \n"
-                          "Usage : @" + botName_Kitty + " instruction1 instruction2 ... \n"
+                          "Usage : @" + botName_Kitty + " instruction1 instruction2 ...\n"
                           "Here is what I can do : \n"
                           "* **help** : print those inscructions\n"
                           "* **Salut** : greetings (in French !)\n"
