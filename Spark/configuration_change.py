@@ -12,6 +12,7 @@ from SparkVariables import *
 from SparkFunctions import *
 
 arguments = sys.argv
+print("arguments =" + arguments)
 
 date = ""
 date += str(arguments[1]) + " " + str(arguments[2])
