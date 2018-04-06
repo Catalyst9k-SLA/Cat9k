@@ -22,7 +22,7 @@ def save_config(usernameTFTP, passwordTFTP, ipTFTP, path, filename):
     output = cli.execute("copy startup-config ftp://" + usernameTFTP + ":" + passwordTFTP + "@" + ipTFTP + path + filename + ".cfg")
     print (output)
 
-    post_message_markdown("# Kitty save config"
+    post_message_markdown("# Kitty save config \n"
                           "Configuration has been saved successfully! Configuration has been saved using **ftp**.\n"
                           "> " + usernameTFTP + "@" + ipTFTP + path + filename + ".cfg", roomID_SoftwareProject, bearer_Bot)
 
