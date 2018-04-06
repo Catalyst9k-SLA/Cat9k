@@ -15,6 +15,7 @@ from argparse import ArgumentParser
 from SparkVariables import *
 from SparkFunctions import *
 from kitty_help import *
+from save_config import *
 
 # Create an instance of Flask
 app = Flask(__name__)
@@ -53,6 +54,9 @@ def webhooks():
             post_message("Salut " + str(person_email), roomID_SoftwareProject, bearer_Bot)
         elif message == "help":
             kittyHelp()
+        elif message == "save config":
+            save_config()
+
 
 
 
