@@ -6,8 +6,8 @@ import sys
 import os
 import inspect
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-dirParent = os.path.dirname(currentdir)
-dirVariable = dirParent + "../Variables"
+dirParent = os.path.dirname(os.path.dirname(currentdir))
+dirVariable = dirParent + "/Variables"
 sys.path.insert(0, dirVariable)
 
 from SparkVariables import *
