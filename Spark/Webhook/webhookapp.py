@@ -5,13 +5,15 @@ import sys
 import os
 import inspect
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
-dirParent = os.path.dirname(os.path.dirname(currentdir))
-dirVariable = dirParent + "/Variables"
-sys.path.insert(0, dirVariable)
+dirParent_Spark = os.path.dirname(currentdir)
+dirParent_Variables = os.path.dirname(os.path.dirname(currentdir))
+dirVariable = dirParent_Variables + "/Variables"
+sys.path.insert(1, dirVariable)
+sys.path.insert(2, dirParent_Spark)
 
 from argparse import ArgumentParser
 from SparkVariables import *
-from Spark.SparkFunctions import *
+from SparkFunctions import *
 
 # Create an instance of Flask
 app = Flask(__name__)
