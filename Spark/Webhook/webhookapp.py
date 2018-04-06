@@ -48,7 +48,7 @@ def webhooks():
     if person_id == peopleID_Kitty:
         return "from Kitty"
     else:
-        post_message("You posted a message !", roomID_SoftwareProject, bearer_Bot)
+        # post_message("You posted a message !", roomID_SoftwareProject, bearer_Bot)
 
         if message == "Salut":
             post_message("Salut " + str(person_email), roomID_SoftwareProject, bearer_Bot)
