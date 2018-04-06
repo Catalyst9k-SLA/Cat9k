@@ -14,6 +14,7 @@ sys.path.insert(2, dirParent_Spark)
 from argparse import ArgumentParser
 from SparkVariables import *
 from SparkFunctions import *
+from kitty_help import *
 
 # Create an instance of Flask
 app = Flask(__name__)
@@ -39,14 +40,19 @@ def webhooks():
     # convert the message id into readable text
     message = get_message(message_id, bearer_Bot)
 
+    # removing the bot name from the message and the space after the bot name
+    message = message[len(botName_Kitty)+1:]
 
+    # Ignore if the message is coming from the bot itself (avoid infinite posting loops)
     if person_id == peopleID_Kitty:
-        return "OK"
+        return "from Kitty"
     else:
         post_message("You posted a message !", roomID_SoftwareProject, bearer_Bot)
 
-        if message == "Kitty Salut":
+        if message == "Salut":
             post_message("Salut " + str(person_email), roomID_SoftwareProject, bearer_Bot)
+        elif message == "help":
+            kittyHelp()
 
     return "OK"
 
