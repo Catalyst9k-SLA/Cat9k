@@ -18,6 +18,7 @@ Cat 9k Software Project of Sarah-Louise and Antoine
 
 # Example :
 webhook_URL = "https://e18e3287.ngrok.io/webhook"
+** Don't forget the "/webhook" at the end **
 
 # Run the below command everytime you have a new URL URL
 python postwebhook.py
