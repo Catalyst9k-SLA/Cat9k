@@ -21,6 +21,7 @@ date = date[1:]
 
 time = ""
 time += str(arguments[3])
+time = time[0:7]
 
 hostname = ""
 hostname += str(arguments[13])
