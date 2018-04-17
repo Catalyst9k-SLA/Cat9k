@@ -55,9 +55,9 @@ def webhooks():
         if message == "Salut":
             post_message_markdown("Salut " + "<@personEmail:" + str(person_email) + ">", roomID_SoftwareProject, bearer_Bot)
             if str(person_email) == "aengelen@cisco.com":
-                post_message("Je prefere l'autre Antoine !")
+                post_message("Je prefere l'autre Antoine !", roomID_SoftwareProject, bearer_Bot)
             elif str(person_email) == "anorsoni@cisco.com":
-                post_message("C'est mon Antoine prefere !")
+                post_message("C'est mon Antoine prefere !", roomID_SoftwareProject, bearer_Bot)
         elif message == "help":
             kittyHelp()
         elif message == "save config":
