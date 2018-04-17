@@ -15,6 +15,11 @@ arguments = sys.argv
 print("arguments =" + str(arguments))
 
 
+resp = post_message_markdown("# hostname : " + str(arguments), roomID_SoftwareProject, bearer_Bot)
+
+resp = post_message_markdown()
+
+
 
 
 
