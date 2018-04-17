@@ -22,12 +22,17 @@ date = date[1:]
 time = ""
 time += str(arguments[3])
 
+hostname = ""
+hostname += str(arguments[13])
+
 print("room ID :" + roomID_SoftwareProject)
 
 resp = post_message_markdown("# Configuration has changed ! \n", roomID_SoftwareProject, bearer_Bot)
 resp = post_message_markdown("* **Date** : " + date + "\n"
                              "* **Time** : " + time, roomID_SoftwareProject, bearer_Bot)
-resp = post_message_markdown("> Changes were made by **" + str(arguments[9]) + "** using **" + str(arguments[7]) + "**", roomID_SoftwareProject, bearer_Bot)
+resp = post_message_markdown("> Changes were made by **" + str(arguments[9]) + "** using **" + str(arguments[7]) + "**" + " on switch **" + hostname +"**", roomID_SoftwareProject, bearer_Bot)
+
+resp = post_message_markdown()
 
 print("resp = " + resp.text)
 
