@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # import Flask
 from flask import Flask, request
 # import  custom-made modules
@@ -53,9 +55,9 @@ def webhooks():
         if message == "Salut":
             post_message("Salut " + "<@personEmail:str(person_email)>", roomID_SoftwareProject, bearer_Bot)
             if person_email == "aengelen@cisco.com":
-                post_message("Je préfère l'autre Antoine !")
+                post_message("Je prefere l'autre Antoine !")
             elif person_email == "anorsoni@cisco.com":
-                post_message("C'est mon Antoine préféré !")
+                post_message("C'est mon Antoine prefere !")
         elif message == "help":
             kittyHelp()
         elif message == "save config":
