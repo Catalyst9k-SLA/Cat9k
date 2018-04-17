@@ -4,13 +4,13 @@ Cat 9k Software Project of Sarah-Louise and Antoine
 
 * Post a message on Spark when a user modifies the configuration. Script is now able to get the date, time, line mode and user who did the change, and post it into the spark group.
 
-![config change](https://imgur.com/a/Rh7Bp)
+![config change](https://i.imgur.com/Yag4Wj8.png)
 
 * Post a message on Spark when an interface state changes
 * Adding bot integration (Kitty), who is able to detect message and answer
 * Save the configuration from the Spark room. Do __@Bot save config__ and the configuration will be backed up to a TFTP server (parameters on SparkVariables.py)
 
-![save config](https://imgur.com/a/wUhFC)
+![save config](https://i.imgur.com/gxZNulb.png)
 
 # Adding the listening bot
 
