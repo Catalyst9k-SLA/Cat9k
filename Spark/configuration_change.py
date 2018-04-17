@@ -24,7 +24,7 @@ time += str(arguments[3])
 time = time[0:8]
 
 hostname = ""
-hostname += str(arguments[14])
+hostname += str(arguments[13])
 
 print("room ID :" + roomID_SoftwareProject)
 
