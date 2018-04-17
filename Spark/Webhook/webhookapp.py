@@ -53,7 +53,7 @@ def webhooks():
         # post_message("You posted a message !", roomID_SoftwareProject, bearer_Bot)
 
         if message == "Salut":
-            post_message("Salut " + "<@personEmail:str(person_email)>", roomID_SoftwareProject, bearer_Bot)
+            post_message("Salut " + "<@personEmail:" + str(person_email)>, roomID_SoftwareProject, bearer_Bot)
             if person_email == "aengelen@cisco.com":
                 post_message("Je prefere l'autre Antoine !")
             elif person_email == "anorsoni@cisco.com":
