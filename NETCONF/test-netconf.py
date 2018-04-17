@@ -7,12 +7,12 @@ import sys
 # the variables below assume the user is leveraging the
 # lab environment and accessing csr1000v
 # use the IP address or hostname of your CSR1000V device
-HOST = '198.18.133.218'
+HOST = '10.48.108.110'
 # use the NETCONF port for your CSR1000V device
 PORT = 2022
 # use the user credentials for your CSR1000V device
 USER = 'admin'
-PASS = 'C1sco12345'
+PASS = 'C1sco123'
 
 
 # create a main() method
