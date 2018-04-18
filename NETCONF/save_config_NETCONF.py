@@ -32,7 +32,11 @@ def save_config_NETCONF(usernameTFTP, passwordTFTP, ipTFTP, path, filename):
                          allow_agent=False, look_for_keys=False) as m:
 
         m.copy_config("running", "ftp://" + usernameTFTP + ":" + passwordTFTP + "@" + ipTFTP + path + filename + "_NETCONF.cfg")
-        print("Done !")
+
+        post_message_markdown("# Kitty save config NETCONF \n"
+                              "Configuration has been saved successfully! Configuration has been saved using **ftp**.\n"
+                              "> " + usernameTFTP + "@" + ipTFTP + path + filename + ".cfg", roomID_SoftwareProject,
+                              bearer_Bot)
 
 if __name__ == '__main__':
     save_config_NETCONF(username_TFTP, password_TFTP, ip_TFTP, path_TFTP, filename_TFTP)
