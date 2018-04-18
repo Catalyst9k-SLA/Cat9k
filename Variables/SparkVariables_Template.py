@@ -26,3 +26,10 @@ filename_TFTP = ""
 path_TFTP = ""
 username_TFTP = ""
 password_TFTP = ""
+
+# Switch parameters
+
+switch_ip = ""
+switch_ssh_port =
+switch_username = ""
+switch_password = ""

@@ -9,9 +9,6 @@ dirVariable = dirParent + "/Variables"
 sys.path.insert(0, dirVariable)
 
 
-# intf= sys.argv[1:]
-# intf = ''.join(intf[0])
-
 from SparkFunctions import *
 from SparkVariables import *
 
