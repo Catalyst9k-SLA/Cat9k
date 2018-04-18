@@ -24,7 +24,7 @@ time += str(arguments[3])
 time = time[0:8]
 
 hostname = ""
-hostname += str(arguments[14])
+hostname += str(arguments[13])
 
 print("room ID :" + roomID_SoftwareProject)
 
@@ -32,8 +32,6 @@ resp = post_message_markdown("# Configuration has changed ! \n", roomID_Software
 resp = post_message_markdown("* **Date** : " + date + "\n"
                              "* **Time** : " + time, roomID_SoftwareProject, bearer_Bot)
 resp = post_message_markdown("> Changes were made by **" + str(arguments[9]) + "** using **" + str(arguments[7]) + "**" + " on device **" + hostname +"**", roomID_SoftwareProject, bearer_Bot)
-
-resp = post_message_markdown()
 
 print("resp = " + resp.text)
 
