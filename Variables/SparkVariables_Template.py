@@ -31,5 +31,6 @@ password_TFTP = ""
 
 switch_ip = ""
 switch_ssh_port =
+switch_netconf_port =
 switch_username = ""
 switch_password = ""

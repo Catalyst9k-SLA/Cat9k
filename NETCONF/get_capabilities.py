@@ -9,9 +9,9 @@ import sys
 # use the IP address or hostname of your CSR1000V device
 HOST = '10.48.108.110'
 # use the NETCONF port for your CSR1000V device
-PORT = 22
+PORT = 830
 # use the user credentials for your CSR1000V device
-USER = 'admin'
+USER = 'netconf-user'
 PASS = 'C1sco123'
 
 
