@@ -18,7 +18,7 @@ def create_room(room_name, token):
     resp = requests.post('https://api.ciscospark.com/v1/rooms',
                          verify=False, headers=headers, data=body)
 
-    print resp
+    print(resp)
 
 
 def list_rooms(token):
@@ -153,7 +153,7 @@ def cleanup_room(room_id, token):
     for message in messages['items']:
         resp = requests.delete('https://api.ciscospark.com/v1/messages/{}'.format(message['id']),
                                verify=False, headers=headers)
-        print resp.status_code
+        print(resp.status_code)
 
 def get_message(message_id , token):
 
