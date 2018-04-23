@@ -20,6 +20,7 @@ if str(arguments[10]) == "administratively":
 else:
     state = str(arguments[10])
     hostname = str(arguments[11])
+    
 
 print("room ID :" + roomID_SoftwareProject)
 
