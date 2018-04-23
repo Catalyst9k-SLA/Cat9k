@@ -14,7 +14,7 @@ from SparkFunctions import *
 arguments = sys.argv
 
 interface = str(arguments[6])
-if str(arguments[12]:
+if str(arguments[10]) == "administratively":
     state = str(arguments[10]) + " " + str(arguments[11])
     hostname = str(arguments[12])
 else:
