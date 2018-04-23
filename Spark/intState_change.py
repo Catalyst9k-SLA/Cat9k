@@ -14,8 +14,12 @@ from SparkFunctions import *
 arguments = sys.argv
 
 interface = str(arguments[6])
-state = str(arguments[10]) + " " + str(arguments[11])
-hostname = str(arguments[12])
+if str(arguments[12]:
+    state = str(arguments[10]) + " " + str(arguments[11])
+    hostname = str(arguments[12])
+else:
+    state = str(arguments[10])
+    hostname = str(arguments[11])
 
 print("room ID :" + roomID_SoftwareProject)
 
