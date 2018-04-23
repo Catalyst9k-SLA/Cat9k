@@ -25,10 +25,18 @@ with manager.connect(host=switch_ip, port=switch_netconf_port, username=switch_u
                          device_params={'name': 'csr'},
                          allow_agent=False, look_for_keys=False) as m:
 
+
+    config = m.get_config("running")
+
+    config_pretty = xml.dom.minidom.parseString(config.xml).toprettyxml()
+
+    print(config_pretty)
+
+
     
-    result = m.get_config("running").data_xml
 
     with open("./SavedConfigs/%s.xml" % "config_backup_SLA_NETCONF", 'w') as f:
-        f.write(result)
+         f.write(config_pretty)
 
-    print(result)
+    # print(result)
+
