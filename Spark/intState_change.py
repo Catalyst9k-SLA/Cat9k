@@ -11,9 +11,16 @@ sys.path.insert(0, dirVariable)
 from SparkVariables import *
 from SparkFunctions import *
 
+arguments = sys.argv
+
+interface = str(arguments[6])
+state = str(arguments[10])
+hostname = str(arguments[11])
+
 print("room ID :" + roomID_SoftwareProject)
 
-resp = post_message("Interface state has changed ! New state is :", roomID_SoftwareProject, bearer_Bot)
+resp = post_message("Interface " + interface +" state has changed on device: " + hostname + "\n" +
+                    "New state is : " + state + "\n", roomID_SoftwareProject, bearer_Bot)
 
 print("resp = " + resp.text)
 
