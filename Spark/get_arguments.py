@@ -17,7 +17,6 @@ print("arguments =" + str(arguments))
 
 resp = post_message_markdown(" arguments : " + str(arguments), roomID_SoftwareProject, bearer_Bot)
 
-resp = post_message_markdown()
 
 
 

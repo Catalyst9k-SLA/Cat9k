@@ -17,6 +17,6 @@ print("arguments =" + str(arguments))
 print("room ID :" + roomID_SoftwareProject)
 
 resp = post_message_markdown("event triggered ! \n", roomID_SoftwareProject, bearer_Bot)
-resp = post_message_markdown(arguments, roomID_SoftwareProject, bearer_Bot)
+resp = post_message_markdown(str(arguments), roomID_SoftwareProject, bearer_Bot)
 
 print("resp = " + resp.text)
