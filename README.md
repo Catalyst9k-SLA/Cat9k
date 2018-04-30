@@ -12,6 +12,12 @@ Cat 9k Software Project of Sarah-Louise and Antoine
 
 ![save config](https://i.imgur.com/gxZNulb.png)
 
+* When interface state change, post a message on Spark
+* Current interface state is cleary shown on Spark
+
+![Interface state has changed](https://imgur.com/a/bIXBz3c)
+
+
 # Adding the listening bot
 
 ```python
