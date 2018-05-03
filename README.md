@@ -6,10 +6,14 @@ This repository leverages the programability features available on the Cisco Cat
 
 Use the Embedded Event Manager (EEM) to automatically take actions when a specific event happend on the switch.  
 
+### Interface states monitoring
+
 * When interface state change, post a message on Spark
 * Current interface state is cleary shown on Spark
 
 ![Interface state has changed](https://i.imgur.com/OtVRopE.png)
+
+### Configuration change monitoring
 
 * Post a message on Spark when a user modifies the configuration. Script is now able to get the date, time, line mode and user who did the change, and post it into the spark group.
 
@@ -17,6 +21,8 @@ Use the Embedded Event Manager (EEM) to automatically take actions when a specif
 
 
 ## Spark bot 
+
+### Saving the configuration from Spark
 
 * Adding bot integration (Kitty), who is able to detect message and answer
 * Save the configuration from the Spark room. Do __@Bot save config__ and the configuration will be backed up to a TFTP server (parameters on SparkVariables.py)
