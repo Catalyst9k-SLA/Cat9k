@@ -1,23 +1,26 @@
 # Cat 9k Software Project of Sarah-Louise and Antoine
 
-This repository leverages the programability features avalable on the Cisco Catalyst 9k. It contains multiple On-Box Python example scripts, shows the intergration with the Spark api and the use of an external server to leverage the NETCONF protocol and YANG data-models for scalability.  
+This repository leverages the programability features available on the Cisco Catalyst 9k. It contains multiple On-Box Python example scripts, shows the intergration with the Spark api and the use of an external server to leverage the NETCONF protocol and YANG data-models for scalability.  
 
-# Working so far :
+## On-Box Python
 
-* Post a message on Spark when a user modifies the configuration. Script is now able to get the date, time, line mode and user who did the change, and post it into the spark group.
-
-![config change](https://i.imgur.com/Yag4Wj8.png)
-
-* Post a message on Spark when an interface state changes
-* Adding bot integration (Kitty), who is able to detect message and answer
-* Save the configuration from the Spark room. Do __@Bot save config__ and the configuration will be backed up to a TFTP server (parameters on SparkVariables.py)
-
-![save config](https://i.imgur.com/gxZNulb.png)
+Use the Embedded Event Manager (EEM) to automatically take actions when a specific event happend on the switch. 
 
 * When interface state change, post a message on Spark
 * Current interface state is cleary shown on Spark
 
 ![Interface state has changed](https://i.imgur.com/OtVRopE.png)
+
+* Post a message on Spark when a user modifies the configuration. Script is now able to get the date, time, line mode and user who did the change, and post it into the spark group.
+
+![config change](https://i.imgur.com/Yag4Wj8.png)
+
+* Adding bot integration (Kitty), who is able to detect message and answer
+* Save the configuration from the Spark room. Do __@Bot save config__ and the configuration will be backed up to a TFTP server (parameters on SparkVariables.py)
+
+![save config](https://i.imgur.com/gxZNulb.png)
+
+
 
 
 # Adding the listening bot
