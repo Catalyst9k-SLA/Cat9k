@@ -4,7 +4,7 @@ This repository leverages the programability features available on the Cisco Cat
 
 ## On-Box Python
 
-Use the Embedded Event Manager (EEM) to automatically take actions when a specific event happend on the switch. 
+Use the Embedded Event Manager (EEM) to automatically take actions when a specific event happend on the switch.  
 
 * When interface state change, post a message on Spark
 * Current interface state is cleary shown on Spark
@@ -15,15 +15,17 @@ Use the Embedded Event Manager (EEM) to automatically take actions when a specif
 
 ![config change](https://i.imgur.com/Yag4Wj8.png)
 
+
+## Spark bot 
+
 * Adding bot integration (Kitty), who is able to detect message and answer
 * Save the configuration from the Spark room. Do __@Bot save config__ and the configuration will be backed up to a TFTP server (parameters on SparkVariables.py)
 
 ![save config](https://i.imgur.com/gxZNulb.png)
 
 
-
-
-# Adding the listening bot
+# Getting started
+##Adding the listening bot
 
 ```python
 ./ngrok http 8080
