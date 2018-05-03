@@ -31,19 +31,37 @@ Use the Embedded Event Manager (EEM) to automatically take actions when a specif
 We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1. A guestshell interface has to be configured in the app-hosting interface prior to the activation of the Guestshell as following:
 
 ```
-#conf t
-(config)#interface GigabitEthernet0/0
-(config-if)#vrf forwarding Mgmt-vrf
-(config-if)#ip address dhcp
-(config-if)#speed 1000
-(config-if)#negotiation auto
-(config-if)#end
+cat9k#conf t
+cat9k(config)#interface GigabitEthernet0/0
+cat9k(config-if)#vrf forwarding Mgmt-vrf
+cat9k(config-if)#ip address dhcp
+cat9k(config-if)#speed 1000
+cat9k(config-if)#negotiation auto
+cat9k(config-if)#end
 
-#guestshell enable
-#conf t
-(config)#app-hosting appid guestshell 
-(config-app-hosting)#vnic managementc guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 208.677.222.222d
-(config-app-hosting)#end
+cat9k#conf t
+cat9kconfig)#app-hosting appid guestshell 
+cat9k(config-app-hosting)#vnic managementc guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 208.677.222.222
+cat9k(config-app-hosting)#end
+
+cat9k#guestshell enable
+
+```
+
+## Setting up your Guestshell (recomendations)
+
+```
+cat9k#guestshell
+[guestshell@guestshell ~]$ sudo yum install git
+[guestshell@guestshell ~]$ sudo yum update -y nss curl libcurl
+[guestshell@guestshell ~]$ git clone https://github.com/Catalyst9k-SLA/Cat9k.git
+
+[guestshell@guestshell ~]$ sudo pip install —-upgrade pip
+[guestshell@guestshell ~]$ sudo pip install requests
+[guestshell@guestshell ~]$ sudo pip install --upgrade setuptools
+[guestshell@guestshell ~]$ sudo pip install ciscosparkapi
+[guestshell@guestshell ~]$ sudo pip install flask ncclient
+[guestshell@guestshell ~]$ sudo pip install nose tornado networkx
 
 ```
 
