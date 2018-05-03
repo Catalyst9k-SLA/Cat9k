@@ -1,6 +1,6 @@
 # Cat 9k Software Project of Sarah-Louise and Antoine
 
-This repository leverages the programability features available on the Cisco Catalyst 9k. It contains multiple On-Box Python example scripts making use of the Guestshell, shows the intergration with the Spark api and the use of an external server to leverage the NETCONF protocol and YANG data-models for scalability.  
+This repository leverages the programability features available on the Cisco Catalyst 9k. It contains multiple On-Box Python example scripts making use of the Guestshell, shows the integration with the Spark api and the use of an external server to leverage the NETCONF protocol and YANG data-models for scalability.  
 
 ## On-Box Python
 
@@ -42,7 +42,7 @@ We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1. A
 #guestshell enable
 #conf t
 (config)#app-hosting appid guestshell 
-(config-app-hosting)#vnic management guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 208.677.222.222
+(config-app-hosting)#vnic managementc guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 208.677.222.222d
 (config-app-hosting)#end
 
 ```
@@ -52,15 +52,30 @@ We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1. A
 The EEM is enabled on the switch though EEM applets. Configuration changes are monitored by executing following CLI configuration:
 
 ```
-dev4431-1#config t
-dev4431-1(config)#event manager applet GUESTSHELL-CONFIG-CHANGE-TO-SPARK
-dev4431-1(config-applet)#event syslog pattern "%SYS-5-CONFIG_I: Configured from"
-dev4431-1(config-applet)#action 0.0 cli command "en"
-dev4431-1(config-applet)#action 1.0 info type syslog history
-dev4431-1(config-applet)#action 2.0 info type routername
-dev4431-1(config-applet)#action 3.0 cli command "guestshell run python /home/guestshell/SoftwareProject/Cat9k/Spark/configuration_change.py $_info_syslog_hist_msg_32 $_info_routername"
-dev4431-1(config-applet)#exit
-dev4431-1(config)#exitsh run
+cat9k#config t
+cat9k(config)#event manager applet GUESTSHELL-CONFIG-CHANGE-TO-SPARK
+cat9k(config-applet)#event syslog pattern "%SYS-5-CONFIG_I: Configured from"
+cat9k(config-applet)#action 0.0 cli command "en"
+cat9k(config-applet)#action 1.0 info type syslog history
+cat9k(config-applet)#action 2.0 info type routername
+cat9k(config-applet)#action 3.0 cli command "guestshell run python /home/guestshell/SoftwareProject/Cat9k/Spark/configuration_change.py $_info_syslog_hist_msg_32 $_info_routername"
+cat9k(config-applet)#exit
+cat9k(config)#exit
+
+```
+
+Interface change monitoring:
+
+```
+cat9k#config t
+cat9k(config)#event manager applet GUESTSHELL-INT-STATE-UPDOWN
+cat9k(config-applet)#event syslog pattern "%LINK-3-UPDOWN:"
+cat9k(config-applet)#action 0   cli command "enable"
+cat9k(config-applet)#action 1.0 info type syslog history
+cat9k(config-applet)#action 2.0 info type routername
+cat9k(config-applet)#action 3.0 cli command "guestshell run python /home/guestshell/SoftwareProject/Cat9k/Spark/intState_change.py $_info_syslog_hist_msg_32 $_info_routername"
+cat9k(config-applet)#exit
+cat9k(config)#exit
 
 ```
 
@@ -68,7 +83,7 @@ dev4431-1(config)#exitsh run
 
 ```python
 ./ngrok http 8080
-
+cc
 # Getting the URL from ngrok
 # Take this URL, and add it to SparkVariables.py
 # Add '/webhook' at the end of the URL
