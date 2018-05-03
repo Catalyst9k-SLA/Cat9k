@@ -1,6 +1,6 @@
 # Cat 9k Software Project of Sarah-Louise and Antoine
 
-This repository leverages the programability features available on the Cisco Catalyst 9k. It contains multiple On-Box Python example scripts, shows the intergration with the Spark api and the use of an external server to leverage the NETCONF protocol and YANG data-models for scalability.  
+This repository leverages the programability features available on the Cisco Catalyst 9k. It contains multiple On-Box Python example scripts making use of the Guestshell, shows the intergration with the Spark api and the use of an external server to leverage the NETCONF protocol and YANG data-models for scalability.  
 
 ## On-Box Python
 
@@ -25,7 +25,12 @@ Use the Embedded Event Manager (EEM) to automatically take actions when a specif
 
 
 # Getting started
-##Adding the listening bot
+## Enabling the Guestshell
+
+Software version: IOS-XE 16.8.1
+
+
+## Adding the listening bot
 
 ```python
 ./ngrok http 8080
