@@ -67,7 +67,9 @@ cat9k#guestshell
 
 ## Embedded Event Manager applet examples
 
-The EEM is enabled on the switch though EEM applets. Configuration changes are monitored by executing following CLI configuration:
+The EEM is enabled on the switch though EEM applets. Below are two configuration examples for the monitoring of **configuration changes** and **interface states**
+
+### Configuration changes monitoring
 
 ```
 cat9k#config t
@@ -82,7 +84,7 @@ cat9k(config)#exit
 
 ```
 
-Interface change monitoring:
+### Interface states monitoring:
 
 ```
 cat9k#config t
@@ -117,6 +119,6 @@ python postwebhook.py
 python webhookapp.py
 ```
 
-More info about the Spark Webhooks :
+### More info about the Spark Webhooks :
 
 > https://developer.ciscospark.com/resource-webhooks.html
