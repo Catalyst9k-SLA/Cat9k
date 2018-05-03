@@ -28,7 +28,7 @@ Use the Embedded Event Manager (EEM) to automatically take actions when a specif
 
 ## Enabling the Guestshell
 
-We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1. A guestshell interface has to be configured in the app-hosting interface prior to the activation of the Guestshell.
+We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1. A guestshell interface has to be configured in the app-hosting interface prior to the activation of the Guestshell as following:
 
 ```
 #conf t
@@ -42,11 +42,27 @@ We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1. A
 #guestshell enable
 #conf t
 (config)#app-hosting appid guestshell 
-(config-app-hosting)#vnic management guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 10.15.0.3
+(config-app-hosting)#vnic management guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 208.677.222.222
 (config-app-hosting)#end
 
 ```
 
+## Embedded Event Manager applet examples
+
+The EEM is enabled on the switch though EEM applets. Configuration changes are monitored by executing following CLI configuration:
+
+```
+dev4431-1#config t
+dev4431-1(config)#event manager applet GUESTSHELL-CONFIG-CHANGE-TO-SPARK
+dev4431-1(config-applet)#event syslog pattern "%SYS-5-CONFIG_I: Configured from"
+dev4431-1(config-applet)#action 0.0 cli command "en"
+dev4431-1(config-applet)#action 1.0 info type syslog history
+dev4431-1(config-applet)#action 2.0 info type routername
+dev4431-1(config-applet)#action 3.0 cli command "guestshell run python /home/guestshell/SoftwareProject/Cat9k/Spark/configuration_change.py $_info_syslog_hist_msg_32 $_info_routername"
+dev4431-1(config-applet)#exit
+dev4431-1(config)#exitsh run
+
+```
 
 ## Adding the listening bot
 
