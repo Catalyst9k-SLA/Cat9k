@@ -1,4 +1,6 @@
-Cat 9k Software Project of Sarah-Louise and Antoine
+#Cat 9k Software Project of Sarah-Louise and Antoine
+
+This repository leverages the programability features avalable on the Cisco Catalyst 9k. It contains multiple On-Box Python example scripts, shows the intergration with the Spark api and the use of an external server to leverage the NETCONF protocol for scalability.  
 
 # Working so far :
 
