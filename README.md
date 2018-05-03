@@ -25,9 +25,27 @@ Use the Embedded Event Manager (EEM) to automatically take actions when a specif
 
 
 # Getting started
+
 ## Enabling the Guestshell
 
-Software version: IOS-XE 16.8.1
+We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1. A guestshell interface has to be configured in the app-hosting interface prior to the activation of the Guestshell.
+
+```
+#conf t
+(config)#interface GigabitEthernet0/0
+(config-if)#vrf forwarding Mgmt-vrf
+(config-if)#ip address dhcp
+(config-if)#speed 1000
+(config-if)#negotiation auto
+(config-if)#end
+
+#guestshell enable
+#conf t
+(config)#app-hosting appid guestshell 
+(config-app-hosting)#vnic management guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 10.15.0.3
+(config-app-hosting)#end
+
+```
 
 
 ## Adding the listening bot
