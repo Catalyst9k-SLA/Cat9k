@@ -48,7 +48,7 @@ cat9k#guestshell enable
 
 ```
 
-## Setting up your Guestshell (recomendations)
+## Setting up your Guestshell (recommendations)
 
 ```
 cat9k#guestshell
