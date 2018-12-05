@@ -34,7 +34,28 @@ Use the Embedded Event Manager (EEM) to automatically take actions when a specif
 
 ## Enabling the Guestshell
 
-We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1. By default, the guestshell interface has to be configured in the app-hosting interface. You will need to configure the following process prior to the activation of the Guestshell. Note that we use the DNS server address of Cisco Umbrella in this example (208.67.222.222):
+We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1a. The first step is to enable the iox feautures with the following command. IOX is the manager that handles guest shell and other 3rd party applications in IOS-XE.
+
+```
+cat9k#conf t
+cat9k(config)#iox
+
+```
+Verify that IOX has start up with a show command (takes a few minute to start up)
+
+```
+cat9k#show iox
+
+IOX Infrastructure Summary:
+---------------------------
+IOX service (CAF)     : RUNNING
+IOX service (HA)      : RUNNING
+IOX service (IOxman)  : RUNNING
+Libvirtd              : RUNNING
+
+```
+
+By default, the guestshell interface has to be configured in the app-hosting interface. You will need to configure the following process prior to the activation of the Guestshell. Note that we use the DNS server address of Cisco Umbrella in this example (208.67.222.222):
 
 ```
 cat9k#conf t
@@ -49,9 +70,11 @@ cat9k#conf t
 cat9kconfig)#app-hosting appid guestshell 
 cat9k(config-app-hosting)#vnic management guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 208.67.222.222
 cat9k(config-app-hosting)#end
+```
+Guestshell is enabled with an exec command:
 
+```
 cat9k#guestshell enable
-
 ```
 
 ## Setting up your Guestshell (recommendations)
