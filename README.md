@@ -34,7 +34,7 @@ Use the Embedded Event Manager (EEM) to automatically take actions when a specif
 
 ## Enabling the Guestshell
 
-We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1. A guestshell interface has to be configured in the app-hosting interface prior to the activation of the Guestshell as following:
+We show how to enable the Guestshell on a Catalyst 9300 running IOS-XE 16.8.1. By default, the guestshell interface has to be configured in the app-hosting interface. You will need to configure the following process prior to the activation of the Guestshell. Note that we use the DNS server address of Cisco Umbrella in this example (208.67.222.222):
 
 ```
 cat9k#conf t
@@ -47,7 +47,7 @@ cat9k(config-if)#end
 
 cat9k#conf t
 cat9kconfig)#app-hosting appid guestshell 
-cat9k(config-app-hosting)#vnic managementc guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 208.677.222.222
+cat9k(config-app-hosting)#vnic management guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 208.67.222.222
 cat9k(config-app-hosting)#end
 
 cat9k#guestshell enable
