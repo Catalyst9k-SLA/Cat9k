@@ -70,11 +70,22 @@ cat9k#conf t
 cat9kconfig)#app-hosting appid guestshell 
 cat9k(config-app-hosting)#vnic management guest-interface 0 guest-ipaddress 10.8.0.102 netmask 255.255.255.0 gateway 10.8.0.254 name-server 208.67.222.222
 cat9k(config-app-hosting)#end
+
 ```
 Guestshell is enabled with an exec command:
 
 ```
 cat9k#guestshell enable
+Interface will be selected if configured in app-hosting
+Please wait for completion
+guestshell intalled successfully
+Current state is: DEPLOYED
+guestshell activated successfully
+Current state is: ACTIVATED
+guestshell started successfully
+Current state is: RUNNING
+guestshell enabled successfully
+
 ```
 
 ## Setting up your Guestshell (recommendations)
