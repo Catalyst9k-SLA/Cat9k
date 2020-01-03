@@ -1,3 +1,5 @@
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/Catalyst9k-SLA/Cat9k)
+
 # Cat 9k Software Project of Sarah-Louise and Antoine
 
 This repository leverages the programability features available on the Cisco Catalyst 9k. It contains multiple On-Box Python example scripts making use of the Guestshell, shows the integration with the Webex Teams api and the use of an external server to leverage the NETCONF protocol and YANG data-models for scalability.  
